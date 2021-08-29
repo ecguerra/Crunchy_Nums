@@ -2,8 +2,8 @@ export default class Square {
     constructor(game, position, value) {
         this.game = game
         this.position = position
-        this.width = 133 // 798
-        this.height = 120 // 600
+        this.width = game.gameWidth / 6
+        this.height = game.gameHeight / 5
         this.value = value
     }
 
@@ -19,6 +19,10 @@ export default class Square {
         ctx.font = '30px Arial'
         ctx.fillStyle = 'black'
         ctx.textAlign = 'center'
-        ctx.fillText(this.value, this.width / 2, this.height / 2 + 10)
+        ctx.fillText(
+            this.value, 
+            this.position.x + this.width/2, 
+            this.position.y + this.height/2 + 10
+        )
     }
 }
