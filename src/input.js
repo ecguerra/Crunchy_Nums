@@ -17,6 +17,10 @@ export default class InputHandler {
                 case 'd':
                     player.moveRight()
                     break
+
+                case ' ':
+                    player.crunch()
+                    break
             }
         })
 
@@ -36,6 +40,10 @@ export default class InputHandler {
 
                 case 'd':
                     if(player.speed.x > 0) player.stopX()
+                    break
+                
+                case ' ':
+                    player.crunch()
                     break
             }
         })

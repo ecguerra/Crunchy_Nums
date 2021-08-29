@@ -8,6 +8,7 @@ export default class Game {
         this.gameWidth = gameWidth
         this.gameHeight = gameHeight
         this.player = new Player(this)
+        this.lives = 3
         // squares might be based in levels in refactor
         this.squares = []
         this.square = new Square(this, {x: 0, y: 0}, 15)

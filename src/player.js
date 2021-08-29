@@ -1,12 +1,16 @@
+import { collisionDetect } from './collisionDetect.js'
+
 export default class Player {
     constructor(game) {
+        this.game = game
         this.gameWidth = game.gameWidth
         this.gameHeight = game.gameHeight
         this.width = 30
         this.height = 30
-        this.maxSpeed = 7
+        this.maxSpeed = 5
         this.speed = {x: 0, y: 0}
         this.position = {x: 50, y: 50}
+        this.chomp = false
     }
 
     stopX() {
@@ -31,6 +35,10 @@ export default class Player {
 
     moveUp() {
         this.speed.y = -this.maxSpeed
+    }
+
+    crunch() {
+        this.chomp = !this.chomp
     }
 
     draw(ctx) {

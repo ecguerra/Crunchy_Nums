@@ -1,3 +1,5 @@
+import { collisionDetect  } from './collisionDetect.js'
+
 export default class Square {
     constructor(game, position, value) {
         this.game = game
@@ -5,10 +7,15 @@ export default class Square {
         this.width = game.gameWidth / 6
         this.height = game.gameHeight / 5
         this.value = value
+        this.display = true
+        this.correctAnswer = false
     }
 
     update() {
-        // TBD
+        if(collisionDetect(this.game.player, this) && this.game.player.chomp) {
+            console.log('chomped!')
+        }
+
     }
 
     draw(ctx) {
