@@ -48,7 +48,8 @@ export default class Player {
         
         // top/bottom
         if(this.position.y < 0) this.position.y = 0
-        if(this.position.y + this.height > this.gameHeight) this.position.y = this.gameHeight - this.height        
+        if(this.position.y + this.height > this.gameHeight) this.position.y = this.gameHeight - this.height
+        
     }
 
 

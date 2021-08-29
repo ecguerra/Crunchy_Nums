@@ -1,5 +1,8 @@
+import { collisionDetect } from './collisionDetect.js'
+
 export default class Enemy {
     constructor(game, speed, position) {
+        this.game = game
         this.gameWidth = game.gameWidth
         this.gameHeight = game.gameHeight
         this.width = 30
@@ -26,7 +29,12 @@ export default class Enemy {
         // top/bottom
         if(this.position.y < 0 || this.position.y + this.height > this.gameHeight) {
             this.speed.y = -this.speed.y
-        }        
+        }
+        
+        // collision with player
+        if(collisionDetect(this.game.player, this)) {
+            console.log('hit detected!')
+        }
     }
 
 
