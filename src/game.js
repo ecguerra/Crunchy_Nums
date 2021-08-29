@@ -11,6 +11,7 @@ export default class Game {
         this.gameHeight = gameHeight
         this.player = new Player(this)
         this.lives = 3
+        this.points = 0
         this.levels = [
             new Level(this, {
                 answerNum: Math.ceil(Math.random() * 10),
@@ -30,11 +31,7 @@ export default class Game {
     }
 
     start() {
-        for(let j=0; j<5; j++) {
-            for(let i=0; i<6; i++){
-                this.squares.push(new Square(this, {x: i * this.gameWidth/6, y: j * this.gameHeight/5}, Math.ceil(Math.random()*100)))
-            }
-        }
+        this.levels[this.currentLevel].buildLevel()
 
         console.log('current factor: ', this.levels[this.currentLevel].answerNum)
 

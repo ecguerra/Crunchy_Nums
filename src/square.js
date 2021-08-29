@@ -12,11 +12,15 @@ export default class Square {
     }
 
     update() {
+        if(this.value % this.game.levels[this.game.currentLevel].answerNum === 0) {
+            this.correctAnswer = true
+        }
+
         if(collisionDetect(this.game.player, this) && this.game.player.chomp) {
             this.display = false
-            if(this.value % this.game.levels[this.game.currentLevel].answerNum === 0) {
-                this.correctAnswer = true
-                console.log('correct!')
+            if(this.correctAnswer) {
+                this.game.points += 10
+                console.log('correct! total points: ', this.game.points)
             } else {
                 this.game.lives--
                 console.log('oh no! lives remaining: ', this.game.lives)
@@ -29,7 +33,6 @@ export default class Square {
         ctx.strokeStyle = 'black'
         ctx.lineWidth = 1
         ctx.strokeRect(this.position.x, this.position.y, this.width, this.height)
-
         ctx.font = '30px Arial'
         ctx.fillStyle = 'black'
         ctx.textAlign = 'center'
