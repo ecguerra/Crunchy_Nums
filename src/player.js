@@ -9,8 +9,12 @@ export default class Player {
         this.position = {x: 50, y: 50}
     }
 
-    stop() {
-        this.speed = {x: 0, y: 0}
+    stopX() {
+        this.speed = {x: 0, y: this.speed.y}
+    }
+
+    stopY() {
+        this.speed = {x: this.speed.x, y: 0}
     }
 
     moveRight() {
@@ -35,8 +39,6 @@ export default class Player {
     }
 
     update(deltaTime) {
-        if(!deltaTime) return
-        
         this.position.x += this.speed.x
         this.position.y += this.speed.y
 
