@@ -13,15 +13,15 @@ export default class Game {
         this.lives = 3
         this.levels = [
             new Level(this, {
-                number: Math.ceil(Math.random() * 10),
+                answerNum: Math.ceil(Math.random() * 10),
                 enemies: [
-                    new Enemy(this, {x: 2, y: 0}, {x: 0, y: 150}), 
-                    new Enemy(this, {x: -2, y: 0}, {x: 770, y: 400})
+                    new Enemy(this, {x: 1, y: 0}, {x: 0, y: 150}), 
+                    new Enemy(this, {x: -1, y: 0}, {x: 770, y: 400})
                 ]
             })
         ]
         this.currentLevel = 0
-        // squares might be based in levels in refactor
+        // squares might be based in levels in refactor - leave for now
         this.squares = []
         this.enemies = []
         this.gameObjects = []
@@ -35,6 +35,8 @@ export default class Game {
                 this.squares.push(new Square(this, {x: i * this.gameWidth/6, y: j * this.gameHeight/5}, Math.ceil(Math.random()*100)))
             }
         }
+
+        console.log('current factor: ', this.levels[this.currentLevel].answerNum)
 
         this.levels[this.currentLevel].enemies.forEach(enemy => this.enemies.push(enemy))
         this.gameObjects = [this.player, ...this.enemies]

@@ -7,7 +7,6 @@ export default class Enemy {
         this.gameHeight = game.gameHeight
         this.width = 30
         this.height = 50
-        this.maxSpeed = 7
         this.speed = speed
         this.position = position
     }
@@ -33,7 +32,9 @@ export default class Enemy {
         
         // collision with player
         if(collisionDetect(this.game.player, this)) {
-            console.log('hit detected!')
+            this.game.player.reset()
+            this.game.lives--
+            console.log('hit detected! lives remaining: ', this.game.lives)
         }
     }
 

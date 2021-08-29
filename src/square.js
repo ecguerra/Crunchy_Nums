@@ -14,7 +14,13 @@ export default class Square {
     update() {
         if(collisionDetect(this.game.player, this) && this.game.player.chomp) {
             this.display = false
-            console.log('chomped!')
+            if(this.value % this.game.levels[this.game.currentLevel].answerNum === 0) {
+                this.correctAnswer = true
+                console.log('correct!')
+            } else {
+                this.game.lives--
+                console.log('oh no! lives remaining: ', this.game.lives)
+            }
         }
 
     }

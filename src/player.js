@@ -1,5 +1,3 @@
-import { collisionDetect } from './collisionDetect.js'
-
 export default class Player {
     constructor(game) {
         this.game = game
@@ -39,6 +37,10 @@ export default class Player {
 
     crunch() {
         this.chomp = !this.chomp
+    }
+
+    reset() {
+        this.position = {x: 50, y: 50}
     }
 
     draw(ctx) {
