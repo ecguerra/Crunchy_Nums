@@ -1,7 +1,9 @@
 import Player from './player.js'
 import Enemy from './enemy.js'
 import Square from './square.js'
+// import { buildLevel, loadEnemies } from './levels.js'
 import InputHandler from './input.js'
+import Level from './level.js'
 
 export default class Game {
     constructor(gameWidth, gameHeight) {
@@ -9,12 +11,19 @@ export default class Game {
         this.gameHeight = gameHeight
         this.player = new Player(this)
         this.lives = 3
+        this.levels = [
+            new Level(this, {
+                number: Math.ceil(Math.random() * 10),
+                enemies: [
+                    new Enemy(this, {x: 2, y: 0}, {x: 0, y: 150}), 
+                    new Enemy(this, {x: -2, y: 0}, {x: 770, y: 400})
+                ]
+            })
+        ]
+        this.currentLevel = 0
         // squares might be based in levels in refactor
         this.squares = []
-        this.square = new Square(this, {x: 0, y: 0}, 15)
-        // enemies will be based on levels in refactor
-        this.enemy1 = new Enemy(this, {x: 2, y: 0}, {x: 0, y: 150})
-        this.enemy2 = new Enemy(this, {x: -2, y: 0}, {x: 770, y: 400})
+        this.enemies = []
         this.gameObjects = []
 
         new InputHandler(this.player, this)
@@ -27,15 +36,18 @@ export default class Game {
             }
         }
 
-        this.gameObjects = [...this.squares, this.player, this.enemy1, this.enemy2]
-        // squares need to load first to be in background
+        this.levels[this.currentLevel].enemies.forEach(enemy => this.enemies.push(enemy))
+        this.gameObjects = [this.player, ...this.enemies]
     }
-
+    
     update(deltaTime) {
-        this.gameObjects.forEach(obj => obj.update(deltaTime))
+        // squares need to load first to be in background
+        [...this.squares, ...this.gameObjects].forEach(obj => obj.update(deltaTime))
+        this.squares = this.squares.filter(squares => squares.display)
+
     }
 
     draw(ctx) {
-        this.gameObjects.forEach(obj => obj.draw(ctx))
+        [...this.squares, ...this.gameObjects].forEach(obj => obj.draw(ctx))
     }
 }

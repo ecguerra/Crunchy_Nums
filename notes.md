@@ -9,7 +9,7 @@
 - Game Over
 - Levels
 
-## Gameplay
+### Gameplay
 - Level
 - Factor
 - Lives
@@ -19,7 +19,7 @@
 - player
 - bads
 
-## Rules
+### Rules
 - 3 lives to start
 - Given factor (lv 1: 1-10)
 - 6x5 grid of numbers (lv 1: 1-100), find multiples
@@ -28,3 +28,10 @@
 - get points (10? 100?) for right answers, extra life at 1000(?) points
 - win level when eat all multiples
 - lose game if lose all lives
+
+### Levels
+- Levels have 3 variables:
+    - the factor (or other answer - later)
+    - enemies (types & placement)
+    - squares (properties / relation to factor)
+- Enemies & Squares need access to Game

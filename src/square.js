@@ -13,6 +13,7 @@ export default class Square {
 
     update() {
         if(collisionDetect(this.game.player, this) && this.game.player.chomp) {
+            this.display = false
             console.log('chomped!')
         }
 
