@@ -6,13 +6,14 @@ export default class Level {
         this.level = level
         this.enemies = level.enemies
         this.answerNum = level.answerNum
+        this.scopeNum = level.scopeNum
+        this.totalAnswers = 0
     }
 
     buildLevel() {
-        let numAnsw = 0
         for(let j=0; j<5; j++) {
             for(let i=0; i<6; i++){
-                let option = Math.ceil(Math.random()*100)
+                let option = Math.ceil(Math.random()*this.scopeNum)
                 this.game.squares.push(
                     new Square(
                         this.game, 
@@ -21,13 +22,13 @@ export default class Level {
                     )
                 )
 
-                if(option % this.answerNum === 0) numAnsw++
+                if(option % this.answerNum === 0) this.totalAnswers++
             }
         }
 
         // if there are fewer than 10 squares with correctAnswer: true, rebuild level
-        console.log('numAnswer: ', numAnsw)
-        if(numAnsw < 10){
+        console.log('numAnswer: ', this.totalAnswers)
+        if(this.totalAnswers < 10){
             this.game.squares = []
             this.buildLevel()
         } 

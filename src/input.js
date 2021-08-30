@@ -21,6 +21,14 @@ export default class InputHandler {
                 case ' ':
                     player.crunch()
                     break
+
+                case 'Escape':
+                    game.togglePause()
+                    break
+                
+                case 'Enter':
+                    game.start()
+                    break
             }
         })
 

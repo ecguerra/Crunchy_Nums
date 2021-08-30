@@ -20,6 +20,7 @@ export default class Square {
             this.display = false
             if(this.correctAnswer) {
                 this.game.points += 10
+                this.game.totalAnswers--
                 console.log('correct! total points: ', this.game.points)
             } else {
                 this.game.lives--

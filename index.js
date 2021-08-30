@@ -11,7 +11,7 @@ ctx.clearRect(0,0,GAME_WIDTH,GAME_HEIGHT)
 const game = new Game(GAME_WIDTH, GAME_HEIGHT)
 let lastTime = 0
 
-game.start()
+// game.start()
 
 const gameLoop = (timeStamp) => {
 
