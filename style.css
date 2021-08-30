@@ -1,3 +1,51 @@
 #gameWindow {
     border: 1px solid black;
+    background-color: #afafaf;
 }
+
+#container {
+    max-width: 50em;
+    /* height: 70vh; */
+    /* background-color: rgb(111, 12, 32); */
+    margin: 0 auto;
+    padding: 1em;
+    display: grid;
+    grid-gap: 1em;
+    grid-template-rows: .25fr .5fr .25fr;
+    grid-template-columns: .25fr .5fr .25fr;
+    grid-template-areas: "top-left top-right top-right"
+                          "game game game"
+                          "btm-left btm-right btm-right";
+    }
+    
+    #top-left, #top-right, #btm-left, #btm-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #e0dfdf;
+    }
+    
+    #top-left {
+      grid-area: top-left;
+    }
+    
+    #top-right {
+      grid-area: top-right;
+      /* background-color: #222; */
+      /* background-image: url('../img/funky-lines.png'); */
+    }
+    
+    main {
+      grid-area: game;
+    }
+    
+    
+    #btm-left {
+      grid-area: btm-left;
+      /* background-color: #222; */
+    }
+    
+    #btm-right {
+      grid-area: btm-right;
+      /* background-color: #222; */
+    }

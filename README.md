@@ -1,4 +1,4 @@
-# Crunchy Num-Nums
+# Number Chompers
 A Number Munchers Clone
 
 ## Demo (TBD)

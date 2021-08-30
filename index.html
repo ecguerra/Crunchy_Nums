@@ -5,10 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <title>Crunchy Num-Nums</title>
+    <title>Number Chompers</title>
 </head>
 <body>
-    <canvas id="gameWindow" width="800px" height="600px"></canvas>
+    <h1>Number Chompers</h1>
+    <div id="container">
+        <aside id="top-left"><h2>Level: <span id="level-num"></span></h2></aside>
+        <aside id="top-right"><h2>Find multiples of <span id="factor-num"></span></h2></aside>
+        <main>
+            <canvas id="gameWindow" width="800px" height="600px"></canvas>
+        </main>
+        <aside id="btm-left"><h2>Score: <span id="score-num"></span></h2></aside>
+        <aside id="btm-right"><h2>Lives: <span id="lives-num"></span></h2></aside>
+    </div>
     <script src="./index.js" type="module"></script>
 </body>
 </html>
