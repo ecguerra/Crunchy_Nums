@@ -12,6 +12,7 @@ export default class Square {
     }
 
     update() {
+        if(this.game.currentLevel === this.game.levels.length) return
         if(this.value % this.game.levels[this.game.currentLevel].answerNum === 0) {
             this.correctAnswer = true
         }
@@ -35,7 +36,12 @@ export default class Square {
         ctx.lineWidth = 1
         ctx.strokeRect(this.position.x, this.position.y, this.width, this.height)
         ctx.font = '30px Arial'
-        ctx.fillStyle = 'black'
+        if(this.correctAnswer) {
+            ctx.fillStyle = 'green'
+
+        } else {
+            ctx.fillStyle = 'black'
+        }
         ctx.textAlign = 'center'
         ctx.fillText(
             this.value, 

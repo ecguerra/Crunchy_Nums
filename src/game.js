@@ -1,7 +1,5 @@
 import Player from './player.js'
 import Enemy from './enemy.js'
-import Square from './square.js'
-// import { buildLevel, loadEnemies } from './levels.js'
 import InputHandler from './input.js'
 import Level from './level.js'
 
@@ -51,6 +49,8 @@ export default class Game {
 
     start() {
         if (this.gamestate !== GAMESTATE.MENU && this.gamestate !== GAMESTATE.NEWLEVEL) return
+        // if (this.gamestate === GAMESTATE.RUNNING && this.gamestate !== GAMESTATE.PAUSED) return
+        // if(this.gamestate === GAMESTATE.GAMEOVER || this.gamestate !== GAMESTATE.WIN) this.playAgain()
 
         this.levels[this.currentLevel].buildLevel()
 
@@ -67,16 +67,16 @@ export default class Game {
         if(this.gamestate !== GAMESTATE.RUNNING) return
 
         if(this.totalAnswers === 0) {
-            this.currentLevel++ // need transition/something to stop chomping 1st number
+            this.currentLevel++
+            console.log(this.currentLevel, this.levels.length)
 
-            if(this.currentLevel < this.levels.length) {
+            if(this.currentLevel === this.levels.length) {
+                this.gamestate = GAMESTATE.WIN
+            } else {
                 this.gamestate = GAMESTATE.NEWLEVEL
                 this.player.reset()
                 this.squares = []
                 this.enemies = []
-                this.start()
-            } else {
-                this.gamestate = GAMESTATE.WIN
             }
         }
 
@@ -121,18 +121,26 @@ export default class Game {
             ctx.rect(0,0, this.gameWidth,this.gameHeight)
             ctx.fillStyle = 'rgba(0,0,0,1)'
             ctx.fill()
-
             ctx.font = '30px Arial'
             ctx.fillStyle = 'white'
             ctx.textAlign = 'center'
             ctx.fillText('GAME OVER', this.gameWidth / 2, this.gameHeight / 2)
         }
 
+        if(this.gamestate === GAMESTATE.NEWLEVEL) {
+            ctx.rect(0,0, this.gameWidth,this.gameHeight)
+            ctx.fillStyle = 'rgba(0,0,0,1)'
+            ctx.fill()
+            ctx.font = '30px Arial'
+            ctx.fillStyle = 'white'
+            ctx.textAlign = 'center'
+            ctx.fillText('Level Complete! Press ENTER to continue', this.gameWidth / 2, this.gameHeight / 2)
+        }
+
         if(this.gamestate === GAMESTATE.WIN) {
             ctx.rect(0,0, this.gameWidth,this.gameHeight)
             ctx.fillStyle = 'rgba(0,0,0,1)'
             ctx.fill()
-
             ctx.font = '30px Arial'
             ctx.fillStyle = 'white'
             ctx.textAlign = 'center'
@@ -146,5 +154,12 @@ export default class Game {
         } else {
             this.gamestate = GAMESTATE.PAUSED
         }
+    }
+
+
+    // in DOM instead?
+    playAgain() {
+        this.currentLevel = 0
+        this.points = 0
     }
 }

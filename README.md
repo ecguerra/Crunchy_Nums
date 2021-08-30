@@ -29,8 +29,14 @@ A Number Munchers Clone
 
 ## Challenges
 ### Solved Issues
+- impossible levels
+- Chomping 1st number of new level
+- Win screen - had to be on SQUARE
 
 ### Unsolved Issues
+- Better way to load level info
+- Faster way to check for enough answers on board
+- Less clunky way to play again after win or lose
 
 ## Acknowledgements
 

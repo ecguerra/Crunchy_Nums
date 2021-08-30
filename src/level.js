@@ -10,7 +10,16 @@ export default class Level {
         this.totalAnswers = 0
     }
 
+    resetLevel() {
+        this.totalAnswers = 0
+        this.game.totalAnswers = 0
+        this.game.enemies = []
+        this.game.squares = []
+    }
+
     buildLevel() {
+        this.resetLevel()
+
         for(let j=0; j<5; j++) {
             for(let i=0; i<6; i++){
                 let option = Math.ceil(Math.random()*this.scopeNum)
@@ -29,7 +38,6 @@ export default class Level {
         // if there are fewer than 10 squares with correctAnswer: true, rebuild level
         console.log('numAnswer: ', this.totalAnswers)
         if(this.totalAnswers < 10){
-            this.game.squares = []
             this.buildLevel()
         } 
 
