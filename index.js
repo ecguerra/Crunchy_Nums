@@ -14,7 +14,6 @@ let lastTime = 0
 // game.start()
 
 const gameLoop = (timeStamp) => {
-
     let deltaTime = timeStamp - lastTime
     lastTime = timeStamp
     ctx.clearRect(0,0,GAME_WIDTH,GAME_HEIGHT)

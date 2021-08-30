@@ -3,6 +3,11 @@ import Enemy from './enemy.js'
 import InputHandler from './input.js'
 import Level from './level.js'
 
+const levelNum = document.getElementById('level-num')
+const factorNum = document.getElementById('factor-num')
+const scoreNum = document.getElementById('score-num')
+const livesNum = document.getElementById('lives-num')
+
 const GAMESTATE = {
     PAUSED: 0,
     RUNNING: 1,
@@ -53,6 +58,7 @@ export default class Game {
         // if(this.gamestate === GAMESTATE.GAMEOVER || this.gamestate !== GAMESTATE.WIN) this.playAgain()
 
         this.levels[this.currentLevel].buildLevel()
+        factorNum.innerText = this.levels[this.currentLevel].answerNum
 
         console.log('current factor: ', this.levels[this.currentLevel].answerNum)
 
@@ -63,12 +69,15 @@ export default class Game {
     }
     
     update(deltaTime) {
+        levelNum.innerText = this.currentLevel + 1
+        scoreNum.innerText = this.points
+        livesNum.innerText = this.lives
+
         if(this.lives === 0) this.gamestate = GAMESTATE.GAMEOVER
         if(this.gamestate !== GAMESTATE.RUNNING) return
 
         if(this.totalAnswers === 0) {
             this.currentLevel++
-            console.log(this.currentLevel, this.levels.length)
 
             if(this.currentLevel === this.levels.length) {
                 this.gamestate = GAMESTATE.WIN
