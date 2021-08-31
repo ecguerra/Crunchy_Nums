@@ -30,19 +30,26 @@ export default class Game {
             new Level(this, {
                 answerNum: Math.ceil(Math.random() * 9) + 1,
                 enemies: [
-                    new Enemy(this, {x: 1, y: 0}, {x: 0, y: 150}), 
-                    new Enemy(this, {x: -1, y: 0}, {x: 770, y: 400})
+                    new Enemy(this, {x: 1, y: 0}, {x: 0, y: 125}), 
+                    new Enemy(this, {x: -1, y: 0}, {x: 450, y: 325})
                 ],
                 scopeNum: 100
             }),
             new Level(this, {
                 answerNum: Math.ceil(Math.random() * 11) + 1,
                 enemies: [
-                    new Enemy(this, {x: 0, y: 2}, {x: 237, y: 0}), 
-                    new Enemy(this, {x: 0, y: -2}, {x: 533, y: 550})
+                    new Enemy(this, {x: 0, y: 2}, {x: 133, y: 0}), 
+                    new Enemy(this, {x: 0, y: -2}, {x: 483, y: 400})
                 ],
                 scopeNum: 144
             }),
+            new Level(this, {
+                answerNum: Math.ceil(Math.random() * 14) + 1,
+                enemies: [
+                    new Enemy(this, {x: -2, y: -2}, {x: 483, y: 400})
+                ],
+                scopeNum: 225
+            })
         ]
         this.currentLevel = 0
         this.squares = []
@@ -56,7 +63,7 @@ export default class Game {
         if (this.gamestate !== GAMESTATE.MENU && this.gamestate !== GAMESTATE.NEWLEVEL) return
 
         this.levels[this.currentLevel].buildLevel()
-        factorNum.innerText = this.levels[this.currentLevel].answerNum
+        factorNum.innerText = `Find multiples of ${this.levels[this.currentLevel].answerNum}`
 
         this.totalAnswers = this.levels[this.currentLevel].totalAnswers
         this.levels[this.currentLevel].enemies.forEach(enemy => this.enemies.push(enemy))
@@ -65,9 +72,11 @@ export default class Game {
     }
     
     update(deltaTime) {
-        levelNum.innerText = this.currentLevel + 1
-        scoreNum.innerText = this.points
-        livesNum.innerText = this.lives
+        if(this.gamestate == GAMESTATE.RUNNING) {
+            levelNum.innerText = `Level: ${this.currentLevel + 1}`
+            scoreNum.innerText = `Score: ${this.points}`
+            livesNum.innerText = `Lives: ${this.lives}`
+        } 
 
         if(this.lives === 0) this.gamestate = GAMESTATE.GAMEOVER
         if(this.gamestate !== GAMESTATE.RUNNING) return
@@ -87,7 +96,7 @@ export default class Game {
 
         if(this.points === 100) {
             this.lives++
-            this.points = 0
+            this.points=0
         }
 
         // squares need to load first to be in background
@@ -135,10 +144,11 @@ export default class Game {
             ctx.rect(0,0, this.gameWidth,this.gameHeight)
             ctx.fillStyle = 'rgba(0,0,0,1)'
             ctx.fill()
-            ctx.font = '1rem "Press Start 2P"'
+            ctx.font = '1.6rem "Press Start 2P"'
             ctx.fillStyle = 'white'
             ctx.textAlign = 'center'
-            ctx.fillText('Level Complete! Press ENTER to continue', this.gameWidth / 2, this.gameHeight / 2)
+            ctx.fillText('Level Complete!', this.gameWidth / 2, this.gameHeight / 2 - 25)
+            ctx.fillText('Press ENTER to continue', this.gameWidth / 2, this.gameHeight / 2 + 25)
         }
 
         if(this.gamestate === GAMESTATE.WIN) {

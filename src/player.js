@@ -3,11 +3,11 @@ export default class Player {
         this.game = game
         this.gameWidth = game.gameWidth
         this.gameHeight = game.gameHeight
-        this.width = 30
-        this.height = 30
+        this.width = 70
+        this.height = 70
         this.maxSpeed = 5
         this.speed = {x: 0, y: 0}
-        this.position = {x: 50, y: 50}
+        this.position = {x: 23, y: 25}
         this.chomp = false
     }
 
@@ -40,7 +40,7 @@ export default class Player {
     }
 
     reset() {
-        this.position = {x: 50, y: 50}
+        this.position = {x: 23, y: 25}
     }
 
     draw(ctx) {

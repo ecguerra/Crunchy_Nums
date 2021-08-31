@@ -1,7 +1,10 @@
 ## To-Do
-- make level 3
-- styling
-- hide asides when game isn't running
+- [x] make level 3
+- Rules screen
+- [x] styling
+- make sprites
+- add music
+- [x] hide asides when game isn't running
 - landing page
 - finish readme
 - deploy

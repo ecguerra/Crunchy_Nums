@@ -39,6 +39,7 @@ A Number Munchers Clone
 - Faster way to check for enough answers on board
 - Less clunky way to play again after win or lose
 - Leave the outlines when squares are chomped (undecided)
+- Better scoring that doesn't clear but still allows for extra lives (and doesn't do a million)
 
 ## Acknowledgements
 

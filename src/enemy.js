@@ -5,8 +5,8 @@ export default class Enemy {
         this.game = game
         this.gameWidth = game.gameWidth
         this.gameHeight = game.gameHeight
-        this.width = 30
-        this.height = 50
+        this.width = game.gameWidth / 8
+        this.height = game.gameHeight / 7
         this.speed = speed
         this.position = position
     }
