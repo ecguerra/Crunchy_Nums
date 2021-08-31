@@ -3,6 +3,7 @@ export default class Player {
         this.game = game
         this.gameWidth = game.gameWidth
         this.gameHeight = game.gameHeight
+        this.image = document.getElementById('chomper_img')
         this.width = 70
         this.height = 70
         this.maxSpeed = 5
@@ -44,8 +45,9 @@ export default class Player {
     }
 
     draw(ctx) {
-        ctx.fillStyle = 'chartreuse'
-        ctx.fillRect(this.position.x, this.position.y, this.width, this.height)
+        // ctx.fillStyle = 'chartreuse'
+        // ctx.fillRect(this.position.x, this.position.y, this.width, this.height)
+        ctx.drawImage(this.image, this.position.x, this.position.y, this.width, this.height)
     }
 
     update(deltaTime) {

@@ -8,6 +8,11 @@ const factorNum = document.getElementById('factor-num')
 const scoreNum = document.getElementById('score-num')
 const livesNum = document.getElementById('lives-num')
 
+const extraLife = new Audio("../assets/extraLife.wav")
+const winGame = new Audio("../assets/winGame.wav")
+const winLevel = new Audio("../assets/winLevel.wav")
+const loseGame = new Audio("../assets/loseGame.wav")
+
 const GAMESTATE = {
     PAUSED: 0,
     RUNNING: 1,
@@ -79,6 +84,7 @@ export default class Game {
         } 
 
         if(this.lives === 0) this.gamestate = GAMESTATE.GAMEOVER
+
         if(this.gamestate !== GAMESTATE.RUNNING) return
 
         if(this.totalAnswers === 0) {
@@ -86,8 +92,10 @@ export default class Game {
 
             if(this.currentLevel === this.levels.length) {
                 this.gamestate = GAMESTATE.WIN
+                winGame.play()
             } else {
                 this.gamestate = GAMESTATE.NEWLEVEL
+                winLevel.play()
                 this.player.reset()
                 this.squares = []
                 this.enemies = []
@@ -95,6 +103,7 @@ export default class Game {
         }
 
         if(this.points === 100) {
+            extraLife.play()
             this.lives++
             this.points=0
         }
@@ -134,6 +143,7 @@ export default class Game {
             ctx.rect(0,0, this.gameWidth,this.gameHeight)
             ctx.fillStyle = 'rgba(0,0,0,1)'
             ctx.fill()
+
             ctx.font = '1.8rem "Press Start 2P"'
             ctx.fillStyle = 'white'
             ctx.textAlign = 'center'
@@ -144,6 +154,7 @@ export default class Game {
             ctx.rect(0,0, this.gameWidth,this.gameHeight)
             ctx.fillStyle = 'rgba(0,0,0,1)'
             ctx.fill()
+
             ctx.font = '1.6rem "Press Start 2P"'
             ctx.fillStyle = 'white'
             ctx.textAlign = 'center'
@@ -155,6 +166,7 @@ export default class Game {
             ctx.rect(0,0, this.gameWidth,this.gameHeight)
             ctx.fillStyle = 'rgba(0,0,0,1)'
             ctx.fill()
+            
             ctx.font = '1.8rem "Press Start 2P"'
             ctx.fillStyle = 'white'
             ctx.textAlign = 'center'

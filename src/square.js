@@ -1,5 +1,8 @@
 import { collisionDetect  } from './collisionDetect.js'
 
+const rightNum = new Audio("../assets/rightNum.wav")
+const loseLife = new Audio("../assets/loseLife.wav")
+
 export default class Square {
     constructor(game, position, value) {
         this.game = game
@@ -20,9 +23,11 @@ export default class Square {
         if(collisionDetect(this.game.player, this) && this.game.player.chomp) {
             this.display = false
             if(this.correctAnswer) {
+                rightNum.play()
                 this.game.points += 10
                 this.game.totalAnswers--
             } else {
+                loseLife.play()
                 this.game.lives--
             }
         }

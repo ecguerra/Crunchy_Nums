@@ -1,10 +1,13 @@
 import { collisionDetect } from './collisionDetect.js'
 
+const loseLife = new Audio("../assets/loseLife.wav")
+
 export default class Enemy {
     constructor(game, speed, position) {
         this.game = game
         this.gameWidth = game.gameWidth
         this.gameHeight = game.gameHeight
+        this.image = document.getElementById("enemy_img")
         this.width = game.gameWidth / 8
         this.height = game.gameHeight / 7
         this.speed = speed
@@ -12,8 +15,9 @@ export default class Enemy {
     }
 
     draw(ctx) {
-        ctx.fillStyle = '#FF5733'
-        ctx.fillRect(this.position.x, this.position.y, this.width, this.height)
+        // ctx.fillStyle = '#FF5733'
+        // ctx.fillRect(this.position.x, this.position.y, this.width, this.height)
+        ctx.drawImage(this.image,this.position.x, this.position.y, this.width, this.height)
     }
 
     update(deltaTime) {
@@ -32,6 +36,7 @@ export default class Enemy {
         
         // collision with player
         if(collisionDetect(this.game.player, this)) {
+            loseLife.play()
             this.game.player.reset()
             this.game.lives--
         }

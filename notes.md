@@ -1,11 +1,11 @@
 ## To-Do
 - [x] make level 3
-- Rules screen
 - [x] styling
-- make sprites
-- add music
+- [x] make sprites
+- [x] add SFX
 - [x] hide asides when game isn't running
 - landing page
+- Rules screen
 - finish readme
 - deploy
 - video/screen shots
