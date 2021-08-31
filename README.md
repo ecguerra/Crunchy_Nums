@@ -4,28 +4,55 @@ A Number Munchers Clone
 ## Demo (TBD)
 
 ## Concept
+- Created for the Mintbean Aug 2021 Hackathon
 
 ### Inspirations
+- The classic children's game [Number Munchers](https://en.wikipedia.org/wiki/Number_Munchers)!
 
 ### Installation Instructions
 - None! Just a browser that can run HTML5 Canvas and Javascript
 
 ## Technologies Used
+- HTML5 Canvas
+- Javascript
+- HTML/CSS
 
 ### Credits
-- This fantastic game development tutorial by [Chris Perko](https://youtu.be/3EMxBkqC4z0)
+- This fantastic game development tutorial by [Chris Perko](https://youtu.be/3EMxBkqC4z0) that refreshed my memory and got me started
+- SFX by [Beep Yeah!](https://beepyeah.itch.io/8-bit-sfx-pack)
+- Sprite drawings by me
 
 ## Approach
 
 ### Overview
 
-### Wireframe (TBD)
+### Wireframe
+<img src="./assets/wireframe.jpg">
 
 ### Development Plan
+- Early stage game with rectangles & no styling
+- Styled game with sprites and SFX (**Current State**)
+- 360-degree sprites, music
+- Additional types of levels
 
 ### MVP
+- The user can move the Chomper around
+- There are enemies in the level that move around independently 
+- The enemies will make the Chomper lose a life if they touch
+- The gameplay provides the player with a factor to find its multiples
+- The user can chomp numbers and be told they are right or wrong
+- The user can earn points and extra lives if they are right
+- The user loses lives if they are wrong
+- The user can pause the game
+- The user can advance to the next level
+- The user can win
+- The user can lose
+- The game is styled beyond placeholders
 
 ## Stretch Goals
+- [] 360-degree sprites
+- [] Background music
+- [] Other level types (fractions, prime numbers, factors of a number)
 
 ## Challenges
 ### Solved Issues

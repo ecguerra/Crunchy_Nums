@@ -21,6 +21,7 @@
 - Menu
 - Game Over
 - Levels
+- Pause
 
 ### Gameplay
 - Level
@@ -30,7 +31,7 @@
 - 6x5 grid
 - numbers
 - player
-- bads
+- enemies
 
 ### Rules
 - 3 lives to start
