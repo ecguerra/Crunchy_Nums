@@ -3,8 +3,8 @@ import Game from './src/game.js'
 const canvas = document.getElementById("gameWindow")
 const ctx = canvas.getContext('2d')
 
-const GAME_WIDTH = 800
-const GAME_HEIGHT = 600
+const GAME_WIDTH = 700
+const GAME_HEIGHT = 500
 
 ctx.clearRect(0,0,GAME_WIDTH,GAME_HEIGHT)
 

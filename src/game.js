@@ -28,7 +28,7 @@ export default class Game {
         this.totalAnswers = 0
         this.levels = [
             new Level(this, {
-                answerNum: Math.ceil(Math.random() * 10), // min/max might be good to get rid of 1
+                answerNum: Math.ceil(Math.random() * 9) + 1,
                 enemies: [
                     new Enemy(this, {x: 1, y: 0}, {x: 0, y: 150}), 
                     new Enemy(this, {x: -1, y: 0}, {x: 770, y: 400})
@@ -36,7 +36,7 @@ export default class Game {
                 scopeNum: 100
             }),
             new Level(this, {
-                answerNum: Math.ceil(Math.random() * 12),
+                answerNum: Math.ceil(Math.random() * 11) + 1,
                 enemies: [
                     new Enemy(this, {x: 0, y: 2}, {x: 237, y: 0}), 
                     new Enemy(this, {x: 0, y: -2}, {x: 533, y: 550})
@@ -54,13 +54,9 @@ export default class Game {
 
     start() {
         if (this.gamestate !== GAMESTATE.MENU && this.gamestate !== GAMESTATE.NEWLEVEL) return
-        // if (this.gamestate === GAMESTATE.RUNNING && this.gamestate !== GAMESTATE.PAUSED) return
-        // if(this.gamestate === GAMESTATE.GAMEOVER || this.gamestate !== GAMESTATE.WIN) this.playAgain()
 
         this.levels[this.currentLevel].buildLevel()
         factorNum.innerText = this.levels[this.currentLevel].answerNum
-
-        console.log('current factor: ', this.levels[this.currentLevel].answerNum)
 
         this.totalAnswers = this.levels[this.currentLevel].totalAnswers
         this.levels[this.currentLevel].enemies.forEach(enemy => this.enemies.push(enemy))
@@ -91,7 +87,6 @@ export default class Game {
 
         if(this.points === 100) {
             this.lives++
-            console.log('extra life! lives: ', this.lives)
             this.points = 0
         }
 
@@ -109,7 +104,7 @@ export default class Game {
             ctx.fillStyle = 'rgba(0,0,0,0.5)'
             ctx.fill()
 
-            ctx.font = '30px Arial'
+            ctx.font = '1.8rem "Press Start 2P"'
             ctx.fillStyle = 'white'
             ctx.textAlign = 'center'
             ctx.fillText('PAUSED', this.gameWidth / 2, this.gameHeight / 2)
@@ -120,7 +115,7 @@ export default class Game {
             ctx.fillStyle = 'rgba(0,0,0,1)'
             ctx.fill()
 
-            ctx.font = '30px Arial'
+            ctx.font = '1.7rem "Press Start 2P"'
             ctx.fillStyle = 'white'
             ctx.textAlign = 'center'
             ctx.fillText('Press ENTER to start', this.gameWidth / 2, this.gameHeight / 2)
@@ -130,7 +125,7 @@ export default class Game {
             ctx.rect(0,0, this.gameWidth,this.gameHeight)
             ctx.fillStyle = 'rgba(0,0,0,1)'
             ctx.fill()
-            ctx.font = '30px Arial'
+            ctx.font = '1.8rem "Press Start 2P"'
             ctx.fillStyle = 'white'
             ctx.textAlign = 'center'
             ctx.fillText('GAME OVER', this.gameWidth / 2, this.gameHeight / 2)
@@ -140,7 +135,7 @@ export default class Game {
             ctx.rect(0,0, this.gameWidth,this.gameHeight)
             ctx.fillStyle = 'rgba(0,0,0,1)'
             ctx.fill()
-            ctx.font = '30px Arial'
+            ctx.font = '1rem "Press Start 2P"'
             ctx.fillStyle = 'white'
             ctx.textAlign = 'center'
             ctx.fillText('Level Complete! Press ENTER to continue', this.gameWidth / 2, this.gameHeight / 2)
@@ -150,7 +145,7 @@ export default class Game {
             ctx.rect(0,0, this.gameWidth,this.gameHeight)
             ctx.fillStyle = 'rgba(0,0,0,1)'
             ctx.fill()
-            ctx.font = '30px Arial'
+            ctx.font = '1.8rem "Press Start 2P"'
             ctx.fillStyle = 'white'
             ctx.textAlign = 'center'
             ctx.fillText('YOU WIN!', this.gameWidth / 2, this.gameHeight / 2)

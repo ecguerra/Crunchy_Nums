@@ -35,8 +35,10 @@ A Number Munchers Clone
 
 ### Unsolved Issues
 - Better way to load level info
+- Min/max for factor instead of just making set bigger
 - Faster way to check for enough answers on board
 - Less clunky way to play again after win or lose
+- Leave the outlines when squares are chomped (undecided)
 
 ## Acknowledgements
 

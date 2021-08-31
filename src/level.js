@@ -36,7 +36,6 @@ export default class Level {
         }
 
         // if there are fewer than 10 squares with correctAnswer: true, rebuild level
-        console.log('numAnswer: ', this.totalAnswers)
         if(this.totalAnswers < 10){
             this.buildLevel()
         } 

@@ -34,7 +34,6 @@ export default class Enemy {
         if(collisionDetect(this.game.player, this)) {
             this.game.player.reset()
             this.game.lives--
-            console.log('hit detected! lives remaining: ', this.game.lives)
         }
     }
 

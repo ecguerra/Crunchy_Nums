@@ -1,3 +1,13 @@
+## To-Do
+- make level 3
+- styling
+- hide asides when game isn't running
+- landing page
+- finish readme
+- deploy
+- video/screen shots
+- social media
+
 ### Assets
 - Player character
 - Baddies

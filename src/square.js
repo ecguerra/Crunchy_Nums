@@ -22,26 +22,19 @@ export default class Square {
             if(this.correctAnswer) {
                 this.game.points += 10
                 this.game.totalAnswers--
-                console.log('correct! total points: ', this.game.points)
             } else {
                 this.game.lives--
-                console.log('oh no! lives remaining: ', this.game.lives)
             }
         }
 
     }
 
     draw(ctx) {
-        ctx.strokeStyle = 'black'
-        ctx.lineWidth = 1
+        ctx.strokeStyle = '#BA55D3'
+        ctx.lineWidth = 3
         ctx.strokeRect(this.position.x, this.position.y, this.width, this.height)
-        ctx.font = '30px Arial'
-        if(this.correctAnswer) {
-            ctx.fillStyle = 'green'
-
-        } else {
-            ctx.fillStyle = 'black'
-        }
+        ctx.font = '1.2rem "Press Start 2P"'
+        ctx.fillStyle = 'white'
         ctx.textAlign = 'center'
         ctx.fillText(
             this.value, 
