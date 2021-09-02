@@ -1,6 +1,8 @@
 # Number Chompers
 A Number Munchers Clone
 
+<img src="./assets/nums_fullpage.png">
+
 ## Deployed Site (https://number-chompers.netlify.app/)
 
 ## Concept

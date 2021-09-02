@@ -9,7 +9,7 @@
 - replay button
 - [x] landing page
 - [x] finish readme
-- deploy
+- [x] deploy
 - social media
 
 ### Assets
