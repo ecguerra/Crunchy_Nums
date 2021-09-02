@@ -192,8 +192,8 @@ export default class Game {
             ctx.fillText('Use W, A, S, D to move!', this.gameWidth / 2, this.gameHeight / 7)
             ctx.fillText('Press SPACE to chomp!', this.gameWidth / 2, this.gameHeight / 7*2)
             ctx.fillText('Press ESC to pause!', this.gameWidth / 2, this.gameHeight / 7*3)
-            ctx.fillText('Eat all the correct answers!', this.gameWidth / 2, this.gameHeight / 7*4)
-            ctx.fillText('Avoid all the baddies!', this.gameWidth / 2, this.gameHeight / 7*5)
+            ctx.fillText('Chomp all the correct answers!', this.gameWidth / 2, this.gameHeight / 7*4)
+            ctx.fillText('Don\'t touch the baddies!', this.gameWidth / 2, this.gameHeight / 7*5)
             ctx.fillText('Press ENTER to start!', this.gameWidth / 2, this.gameHeight / 7*6)
         }
     }

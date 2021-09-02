@@ -21,6 +21,7 @@ A Number Munchers Clone
 - This fantastic game development tutorial by [Chris Perko](https://youtu.be/3EMxBkqC4z0) that refreshed my memory and got me started
 - SFX by [Beep Yeah!](https://beepyeah.itch.io/8-bit-sfx-pack)
 - Sprite drawings by me
+- Social Icons by [Font Awesome](https://fontawesome.com)
 
 ## Approach
 
