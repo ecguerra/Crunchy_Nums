@@ -1,7 +1,7 @@
 # Number Chompers
 A Number Munchers Clone
 
-## Demo (TBD)
+## Deployed Site (https://number-chompers.netlify.app/)
 
 ## Concept
 - Created for the Mintbean Aug 2021 Hackathon
@@ -74,7 +74,7 @@ Move your Chomper using the WASD keys and press the spacebar to chomp a number! 
 - To Mintbean for organizing this great opportunity
 - Andy for beta testing, keeping me fed, and cheering me on
 
-## Demo (TBD)
+## Deployed Site (https://number-chompers.netlify.app/)
 
 ## Versioning & Releases
 9/2/2021 - initial release
