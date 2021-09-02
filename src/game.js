@@ -19,7 +19,8 @@ const GAMESTATE = {
     MENU: 2,
     GAMEOVER: 3,
     NEWLEVEL: 4,
-    WIN: 5
+    WIN: 5,
+    RULES: 6
 }
 
 export default class Game {
@@ -65,7 +66,7 @@ export default class Game {
     }
 
     start() {
-        if (this.gamestate !== GAMESTATE.MENU && this.gamestate !== GAMESTATE.NEWLEVEL) return
+        if (this.gamestate !== GAMESTATE.MENU && this.gamestate !== GAMESTATE.NEWLEVEL && this.gamestate !== GAMESTATE.RULES) return
 
         this.levels[this.currentLevel].buildLevel()
         factorNum.innerText = `Find multiples of ${this.levels[this.currentLevel].answerNum}`
@@ -74,6 +75,10 @@ export default class Game {
         this.levels[this.currentLevel].enemies.forEach(enemy => this.enemies.push(enemy))
         this.gameObjects = [this.player, ...this.enemies]
         this.gamestate = GAMESTATE.RUNNING
+    }
+
+    openRules() {
+        this.gamestate = GAMESTATE.RULES
     }
     
     update(deltaTime) {
@@ -137,6 +142,9 @@ export default class Game {
             ctx.fillStyle = 'white'
             ctx.textAlign = 'center'
             ctx.fillText('Press ENTER to start', this.gameWidth / 2, this.gameHeight / 2)
+            ctx.font = '1rem "Press Start 2P"'
+            ctx.fillText('Press R for rules', this.gameWidth / 2, this.gameHeight / 7*6)
+
         }
 
         if(this.gamestate === GAMESTATE.GAMEOVER) {
@@ -171,6 +179,22 @@ export default class Game {
             ctx.fillStyle = 'white'
             ctx.textAlign = 'center'
             ctx.fillText('YOU WIN!', this.gameWidth / 2, this.gameHeight / 2)
+        }
+
+        if(this.gamestate === GAMESTATE.RULES) {
+            ctx.rect(0,0, this.gameWidth,this.gameHeight)
+            ctx.fillStyle = 'rgba(0,0,0,1)'
+            ctx.fill()
+            
+            ctx.font = '0.7rem "Press Start 2P"'
+            ctx.fillStyle = 'white'
+            ctx.textAlign = 'center'
+            ctx.fillText('Use W, A, S, D to move!', this.gameWidth / 2, this.gameHeight / 7)
+            ctx.fillText('Press SPACE to chomp!', this.gameWidth / 2, this.gameHeight / 7*2)
+            ctx.fillText('Press ESC to pause!', this.gameWidth / 2, this.gameHeight / 7*3)
+            ctx.fillText('Eat all the correct answers!', this.gameWidth / 2, this.gameHeight / 7*4)
+            ctx.fillText('Avoid all the baddies!', this.gameWidth / 2, this.gameHeight / 7*5)
+            ctx.fillText('Press ENTER to start!', this.gameWidth / 2, this.gameHeight / 7*6)
         }
     }
 

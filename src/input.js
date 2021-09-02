@@ -29,6 +29,10 @@ export default class InputHandler {
                 case 'Enter':
                     game.start()
                     break
+                
+                case 'r':
+                    game.openRules()
+                    break
             }
         })
 
@@ -53,6 +57,7 @@ export default class InputHandler {
                 case ' ':
                     player.crunch()
                     break
+
             }
         })
 

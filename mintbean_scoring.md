@@ -1,5 +1,6 @@
 # Mintbean Star Scoring Criteria
 8 points needed for Mintbean Star
+
 ## User Experience & Interface (Frontend & Fullstack Only)
 - No Credit (0 Points) - The UX is obscure, or the UI is not aesthetically pleasing. 
 - Basic (1 Point) - The UX is clear and easy to use, but a non-trivial amount of help text is required to understand it. The UI uses appropriate design patterns.

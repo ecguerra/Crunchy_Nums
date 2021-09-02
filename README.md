@@ -32,7 +32,7 @@ A Number Munchers Clone
 ### Development Plan
 - Early stage game with rectangles & no styling
 - Styled game with sprites and SFX (**Current State**)
-- 360-degree sprites, music
+- 360-degree sprites, music, updated level, win, game over screens
 - Additional types of levels
 
 ### MVP
@@ -53,6 +53,7 @@ A Number Munchers Clone
 - [] 360-degree sprites
 - [] Background music
 - [] Other level types (fractions, prime numbers, factors of a number)
+- [] Animations between levels
 
 ## Challenges
 ### Solved Issues
