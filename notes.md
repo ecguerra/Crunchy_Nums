@@ -7,8 +7,8 @@
 - [x] Rules screen
 - [x] video/screen shots
 - replay button
-- landing page
-- finish readme
+- [x] landing page
+- [x] finish readme
 - deploy
 - social media
 
