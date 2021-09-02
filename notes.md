@@ -7,6 +7,7 @@
 - [x] Rules screen
 - [x] video/screen shots
 - replay button
+- back button
 - [x] landing page
 - [x] finish readme
 - [x] deploy

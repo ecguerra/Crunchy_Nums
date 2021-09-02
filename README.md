@@ -54,10 +54,11 @@ Move your Chomper using the WASD keys and press the spacebar to chomp a number! 
 - The game is styled beyond placeholders
 
 ## Stretch Goals
-- [] 360-degree sprites
-- [] Background music
-- [] Other level types (fractions, prime numbers, factors of a number, min/max for factor levels)
-- [] Animations between levels
+- 360-degree sprites
+- Background music
+- Other level types (fractions, prime numbers, factors of a number, min/max for factor levels)
+- New baddie types, similar to Number Munchers
+- Animations between levels
 
 ## Challenges
 ### Solved Issues
@@ -66,11 +67,12 @@ Move your Chomper using the WASD keys and press the spacebar to chomp a number! 
 - **Levels advancing before the win screen**: This was causing a game-breaking error because the game would try to advance the array past its length. I tried out multiple catches on the Game and Level classes before realizing the issue was actually on the Square class.
 
 ### Unsolved Issues
-- **Better way to load level info**: Loading it all into the Game class is not sustainable, but since the Enemy class uses the game information I'm having trouble finding a better way to load it without completely refactoring
+- **Better way to load level info**: Loading it all into the Game class is not sustainable if I want to keep building levels, but since the Enemy class contained within the Level info needs the game information I'm having trouble finding a better way to load it without completely refactoring. 
 - **Faster way to check for enough answers on board**: There are times when the level check has to run many times over and the load time slows down as a result
-- **Better scoring that doesn't clear but still allows for extra lives** (and doesn't run forever): I don't like resetting the score to 0 for every extra life, but when I set it to a modulo operation for divisibility by 100 it runs continuously (due to the updating) until the player chomps another correct answer. 
-- Leave the outlines when squares are chomped (undecided - just an aesthetic thing)
-- **get game over sfx to only play once instead of on loop**: It only happens with the game over screen. All the other screens only play once. Very annoying.
+- **Better scoring that doesn't clear but still allows for extra lives** (and doesn't run forever): I don't like resetting the score to 0 for every extra life, but when I set it to a modulo operation for divisibility by 100 it runs continuously (due to update()) until the player chomps another correct answer. 
+- **Get game over sfx to only play once instead of on loop**: This only happens on the game over screen. All the other screens sfx only play once. Very annoying.
+- **Play Again feature from win and lose screens**: Similar to above, I just can't get the game to reset properly from the win and lose states. This might need to be in a refactor.
+- **Leave the outlines when squares are chomped**: I'm undecided on this one. In the original Number Munchers the outline stays after the number is gone and the empty square can still be a "safe zone." I don't mind having the whole square disappear on my version, but if I want to add safe zones I might need to refactor the Square class.
 
 ## Acknowledgements
 - To Mintbean for organizing this great opportunity
