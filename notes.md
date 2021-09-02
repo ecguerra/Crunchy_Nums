@@ -4,11 +4,12 @@
 - [x] make sprites
 - [x] add SFX
 - [x] hide asides when game isn't running
+- [x] Rules screen
+- [x] video/screen shots
+- replay button
 - landing page
-- Rules screen
 - finish readme
 - deploy
-- video/screen shots
 - social media
 
 ### Assets

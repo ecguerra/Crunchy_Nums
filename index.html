@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Number Chompers" />
+    <meta
+      property="og:description"
+      name="description"
+      content="A Number Munchers clone built in HTML5 Canvas and Javascript"
+    />
+    <meta property="og:image" content="./assets/nums_screenshot.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Karla&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="style.css">
     <title>Number Chompers</title>
@@ -25,35 +36,35 @@
         <aside>
             <p> Move your Chomper using the WASD keys and press the spacebar to chomp a number! If you need to pause, press Escape.
                 Chomp all the correct answers to advance to the next level, but watch out for the baddies that want to stop you!
-                Bumping into a baddie or chomping an incorrect answer will make you lose a life! But don't worry, you'll earn an extra life every 100 points.
+                Bumping into a baddie or chomping an incorrect answer will make you lose a life! But don't worry, you'll earn an extra life for every 100 points.
             </p>
-            <a href="./play.html">Play Number Chompers!</a>
+            <a href="./play.html" id="play-btn">Play Number Chompers!</a>
         </aside>
     </main>
     <h2>About the Developer</h2>
     <section>
         <div class="card">
-            <div class="card-left">
+            <!-- <div class="card-top">
                 <img src="./assets/EGuerra_square.jpg" id="guerra_img" alt="Elizabeth Guerra">
                 <h3>Elizabeth Guerra</h3>
-            </div>
-            <div class="card-right">
+            </div> -->
+            <div class="card-top">
                 <p>
-                    Elizabeth is a full-stack engineer with a love of design. 
+                    Elizabeth Guerra is a full-stack engineer with a love of design. 
                     She enjoys solving problems through coding and building user-focused and visually appealing websites.
                     She also enjoys a fun retro video game.
                 </p>
-                <div class="card-btm">
-                    <a href="https://github.com/ecguerra" target="_blank">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/elizabethcguerra/" target="_blank">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://elizabeth-guerra.com" target="_blank">
-                        <i class="fas fa-globe"></i>
-                    </a>
-                </div>
+            </div>
+            <div class="card-btm">
+                <a href="https://github.com/ecguerra" target="_blank" class="social">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/elizabethcguerra/" target="_blank" class="social">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://elizabeth-guerra.com" target="_blank" class="social">
+                    <i class="fas fa-globe"></i>
+                </a>
             </div>
         </div>
     </section>
